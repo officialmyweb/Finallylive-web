@@ -1,0 +1,11 @@
+{
+  "Channel Name - Hindi": {
+    "file": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_252/output/manifest.mpd?begin=20240606T223212&end=20240614T223212",
+    "drm": {
+      "clearkey": {
+        "keyId": "124dccb711dc563d80c6cf101718672c",
+        "key": "1988b9b5aa84e3275894e73a29757e92"
+      }
+    }
+  }
+}
