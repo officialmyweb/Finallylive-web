@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>FinallyLiveStreaming</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/controls.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="channelData.js"></script>
+</head>
+<body bgcolor="black" margin="0">
+    <center>
+        <div data-shaka-player-container="" style="width: 100%; height: 100%; cursor: none;" class="shaka-mobile shaka-video-container" shaka-controls="true">
+            <video poster="logo.jpg" autoplay="" data-shaka-player="" id="video" style="width:100%;height:100%;" class="shaka-video"></video>
+        </div>
+    </center>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function getChannelData(channelId) {
+            return channelData[channelId];
+        }
+
+        async function init() {
+            const channelId = getQueryParam('id');
+            const channelInfo = getChannelData(channelId);
+
+            if (!channelInfo) {
+                console.error('Invalid channel ID');
+                return;
+            }
+
+            const manifestUri = channelInfo.file;
+            const keyId = channelInfo.drm.clearkey.keyId;
+            const key = channelInfo.drm.clearkey.key;
+
+            const video = document.getElementById('video');
+            const ui = video['ui'];
+            const controls = ui.getControls();
+            const player = controls.getPlayer();
+            window.player = player;
+            window.ui = ui;
+
+            player.configure({
+                drm: {
+                    clearKeys: {
+                        [keyId]: key
+                    }
+                }
+            });
+
+            player.addEventListener('error', onPlayerErrorEvent);
+            controls.addEventListener('error', onUIErrorEvent);
+
+            try {
+                await player.load(manifestUri);
+                console.log('The video has now been loaded!');
+            } catch (error) {
+                onPlayerError(error);
+            }
+        }
+
+        function onPlayerErrorEvent(errorEvent) {
+            onPlayerError(errorEvent.detail);
+        }
+
+        function onPlayerError(error) {
+            console.error('Error code', error.code, 'object', error);
+        }
+
+        function onUIErrorEvent(errorEvent) {
+            onPlayerError(errorEvent.detail);
+        }
+
+        function initFailed(errorEvent) {
+            console.error('Unable to load the UI library!');
+        }
+
+        document.addEventListener('shaka-ui-loaded', init);
+        document.addEventListener('shaka-ui-load-failed', initFailed);
+
+        var a = confirm("Join Our Telegram @finallylivestreaming For More");
+        if (a == true) {
+            window.location.href = "https://telegram.me/FinallyliveStreaming";
+        }
+
+        function welcome() {
+            window.open("#")
+        }
+    </script>
+</body>
+</html>
