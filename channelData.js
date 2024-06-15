@@ -1,5 +1,5 @@
 const channelData = {
-  "Channel Name - Hindi": {
+  "hindi": {
     "file": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_252/output/manifest.mpd?begin=20240609T072909&end=20240617T072909",
     "drm": {
       "clearkey": {
@@ -8,7 +8,7 @@ const channelData = {
       }
     }
   },
-  "Channel Name - English": {
+  "english": {
     "file": "https://bpprod2catchup.akamaized.net/bpk-tv/irdeto_com_Channel_250/output/manifest.mpd?begin=20240609T073000&end=20240617T073000",
     "drm": {
       "clearkey": {
