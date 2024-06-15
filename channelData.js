@@ -53,5 +53,14 @@ const channelData = {
       }
     }
   },
+  "phindi": {
+    "file": "https://aba5sdmaaaaaaaamibyasmmfoav3v.otte.live.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/dmmqe7ssji/out/v1/3775f3d149f34a7a81d8cd7d58118e40/cenc.mpd",
+    "drm": {
+      "clearkey": {
+        "keyId": "1105b85e6db6214e686e462206ed86ec",
+        "key": "59d851187354b65fa2d14829046893ef"
+      }
+    }
+  },
   
 };
