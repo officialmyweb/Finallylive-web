@@ -9,89 +9,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.5.0/controls.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="channelData.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .shaka-video-container {
+            width: 100%;
+            height: 100%;
+        }
+        .shaka-video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
-<body bgcolor="black" margin="0">
-    <center>
-        <div data-shaka-player-container="" style="width: 100%; height: 100%; cursor: none;" class="shaka-mobile shaka-video-container" shaka-controls="true">
-            <video poster="logo.jpg" autoplay="" data-shaka-player="" id="video" style="width:100%;height:100%;" class="shaka-video"></video>
-        </div>
-    </center>
+<body>
+    <div data-shaka-player-container="" class="shaka-video-container" shaka-controls="true">
+        <video poster="logo.jpg" autoplay data-shaka-player="" id="video" class="shaka-video"></video>
+    </div>
     <script>
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        function getChannelData(channelId) {
-            return channelData[channelId];
-        }
-
-        async function init() {
-            const channelId = getQueryParam('id');
-            const channelInfo = getChannelData(channelId);
-
-            if (!channelInfo) {
-                console.error('Invalid channel ID');
-                return;
-            }
-
-            const manifestUri = channelInfo.file;
-            const keyId = channelInfo.drm.clearkey.keyId;
-            const key = channelInfo.drm.clearkey.key;
-
-            const video = document.getElementById('video');
-            const ui = video['ui'];
-            const controls = ui.getControls();
-            const player = controls.getPlayer();
-            window.player = player;
-            window.ui = ui;
-
-            player.configure({
-                drm: {
-                    clearKeys: {
-                        [keyId]: key
-                    }
-                }
-            });
-
-            player.addEventListener('error', onPlayerErrorEvent);
-            controls.addEventListener('error', onUIErrorEvent);
-
-            try {
-                await player.load(manifestUri);
-                console.log('The video has now been loaded!');
-            } catch (error) {
-                onPlayerError(error);
-            }
-        }
-
-        function onPlayerErrorEvent(errorEvent) {
-            onPlayerError(errorEvent.detail);
-        }
-
-        function onPlayerError(error) {
-            console.error('Error code', error.code, 'object', error);
-        }
-
-        function onUIErrorEvent(errorEvent) {
-            onPlayerError(errorEvent.detail);
-        }
-
-        function initFailed(errorEvent) {
-            console.error('Unable to load the UI library!');
-        }
-
-        document.addEventListener('shaka-ui-loaded', init);
-        document.addEventListener('shaka-ui-load-failed', initFailed);
-
-        var a = confirm("Join Our Telegram @finallylivestreaming For More");
-        if (a == true) {
-            window.location.href = "https://telegram.me/FinallyliveStreaming";
-        }
-
-        function welcome() {
-            window.open("#")
-        }
-    </script>
+    //<!--
+function _0x55a0(){const _0xeb6293=['1570446FXOfoz','drm','stener','streaming\x20','video','detail','get','search','legram.me/','oaded','UOEVw','addEventLi','OzGgy','Ubafa','Join\x20Our\x20T','hfslF','2855rdZKFN','2949870Itetwd','official','The\x20video\x20','Finallyliv','ById','11akgqIk','For\x20More','72rZwkSi','finallyliv','file','getElement','IDjav','964nHMFOt','Invalid\x20ch','load','e.pages.de','href','eStreaming','mYPVF','player','load\x20the\x20U','open','1351kZpCRg','en\x20loaded!','keyId','ydCxt','shaka-ui-l','configure','zEbyo','TSAYo','8968008NqqfDW','Unable\x20to\x20','inallylive','20712VpYOzY','error','getPlayer','location','livecrichd','oad-failed','getControl','Error\x20code','959184aziuNj','key','elegram\x20@f','log','hostname','31Kdrltk','annel\x20ID','https://te','BHUtu','clearkey','has\x20now\x20be','object','I\x20library!','code','sztqP','38602CHDXRh'];_0x55a0=function(){return _0xeb6293;};return _0x55a0();}const _0x314786=_0x2d72;(function(_0x349af7,_0x34ee5a){const _0x46e1c5=_0x2d72,_0x354ae0=_0x349af7();while(!![]){try{const _0x2c9e22=-parseInt(_0x46e1c5(0x1aa))/(0x14*-0x100+0x1*-0x1be+0x15bf)*(-parseInt(_0x46e1c5(0x1b4))/(0x25d4+-0x1477+0x1*-0x115b))+parseInt(_0x46e1c5(0x1a5))/(0x296*0xc+-0x739+-0x17cc*0x1)+parseInt(_0x46e1c5(0x188))/(-0xd*-0x1be+0x6e8+-0x1d8a)*(parseInt(_0x46e1c5(0x17b))/(0x145b+-0x23dc+0x7c3*0x2))+parseInt(_0x46e1c5(0x19d))/(0x1*0x209+0x1176+-0x1379)*(-parseInt(_0x46e1c5(0x192))/(-0x11fa*-0x2+-0x70f+-0x1cde))+parseInt(_0x46e1c5(0x183))/(0x20ac+0x1432+-0x1a6b*0x2)*(parseInt(_0x46e1c5(0x1b5))/(-0x1271*0x1+-0x237+-0x1*-0x14b1))+-parseInt(_0x46e1c5(0x17c))/(0x3c7+0x3*-0x18a+-0x3*-0x4b)+-parseInt(_0x46e1c5(0x181))/(-0x194a+0x124f+0x706)*(parseInt(_0x46e1c5(0x19a))/(-0x1e88+-0x26e*0xe+0x4098));if(_0x2c9e22===_0x34ee5a)break;else _0x354ae0['push'](_0x354ae0['shift']());}catch(_0x229c00){_0x354ae0['push'](_0x354ae0['shift']());}}}(_0x55a0,0x2*-0x1c3c9+0x6d784*0x4+-0x9d647));function getQueryParam(_0x452e23){const _0x46ff36=_0x2d72,_0x1635ad=new URLSearchParams(window[_0x46ff36(0x1a0)][_0x46ff36(0x1bc)]);return _0x1635ad[_0x46ff36(0x1bb)](_0x452e23);}function getChannelData(_0x3d507f){return channelData[_0x3d507f];}async function init(){const _0x1be76e=_0x2d72,_0x54d482={'UOEVw':function(_0x570c05,_0x37c0b1){return _0x570c05(_0x37c0b1);},'IDjav':_0x1be76e(0x189)+_0x1be76e(0x1ab),'mYPVF':_0x1be76e(0x1b9),'sztqP':_0x1be76e(0x19e),'BHUtu':_0x1be76e(0x17e)+_0x1be76e(0x1af)+_0x1be76e(0x193),'hfslF':function(_0x356168,_0x473f3e){return _0x356168(_0x473f3e);}},_0x11ab15=_0x54d482[_0x1be76e(0x175)](getQueryParam,'id'),_0x58030b=_0x54d482[_0x1be76e(0x175)](getChannelData,_0x11ab15);if(!_0x58030b){console[_0x1be76e(0x19e)](_0x54d482[_0x1be76e(0x187)]);return;}const _0x26ff49=_0x58030b[_0x1be76e(0x185)],_0x2eb9c9=_0x58030b[_0x1be76e(0x1b6)][_0x1be76e(0x1ae)][_0x1be76e(0x194)],_0x23806d=_0x58030b[_0x1be76e(0x1b6)][_0x1be76e(0x1ae)][_0x1be76e(0x1a6)],_0x30f509=document[_0x1be76e(0x186)+_0x1be76e(0x180)](_0x54d482[_0x1be76e(0x18e)]),_0x26fda7=_0x30f509['ui'],_0x334097=_0x26fda7[_0x1be76e(0x1a3)+'s'](),_0x450247=_0x334097[_0x1be76e(0x19f)]();window[_0x1be76e(0x18f)]=_0x450247,window['ui']=_0x26fda7,_0x450247[_0x1be76e(0x197)]({'drm':{'clearKeys':{[_0x2eb9c9]:_0x23806d}}}),_0x450247[_0x1be76e(0x176)+_0x1be76e(0x1b7)](_0x54d482[_0x1be76e(0x1b3)],onPlayerErrorEvent),_0x334097[_0x1be76e(0x176)+_0x1be76e(0x1b7)](_0x54d482[_0x1be76e(0x1b3)],onUIErrorEvent);try{await _0x450247[_0x1be76e(0x18a)](_0x26ff49),console[_0x1be76e(0x1a8)](_0x54d482[_0x1be76e(0x1ad)]);}catch(_0x13df29){_0x54d482[_0x1be76e(0x17a)](onPlayerError,_0x13df29);}}function onPlayerErrorEvent(_0x2f359f){const _0x36d370=_0x2d72,_0x210662={'Ubafa':function(_0x1da601,_0x200f8f){return _0x1da601(_0x200f8f);}};_0x210662[_0x36d370(0x178)](onPlayerError,_0x2f359f[_0x36d370(0x1ba)]);}function onPlayerError(_0x5bc3fb){const _0x229925=_0x2d72,_0x2ebc13={'zEbyo':_0x229925(0x1a4),'OzGgy':_0x229925(0x1b0)};console[_0x229925(0x19e)](_0x2ebc13[_0x229925(0x198)],_0x5bc3fb[_0x229925(0x1b2)],_0x2ebc13[_0x229925(0x177)],_0x5bc3fb);}function onUIErrorEvent(_0x33cac8){const _0x5ed0b5=_0x2d72,_0x3d2f6f={'ydCxt':function(_0x2bf8ea,_0x341002){return _0x2bf8ea(_0x341002);}};_0x3d2f6f[_0x5ed0b5(0x195)](onPlayerError,_0x33cac8[_0x5ed0b5(0x1ba)]);}function initFailed(_0x469366){const _0x2460f0=_0x2d72,_0x1d8c14={'TSAYo':_0x2460f0(0x19b)+_0x2460f0(0x190)+_0x2460f0(0x1b1)};console[_0x2460f0(0x19e)](_0x1d8c14[_0x2460f0(0x199)]);}document[_0x314786(0x176)+_0x314786(0x1b7)](_0x314786(0x196)+_0x314786(0x174),init),document[_0x314786(0x176)+_0x314786(0x1b7)](_0x314786(0x196)+_0x314786(0x1a2),initFailed);var a=confirm(_0x314786(0x179)+_0x314786(0x1a7)+_0x314786(0x19c)+_0x314786(0x1b8)+_0x314786(0x182));a==!![]&&(window[_0x314786(0x1a0)][_0x314786(0x18c)]=_0x314786(0x1ac)+_0x314786(0x1bd)+_0x314786(0x17f)+_0x314786(0x18d));function welcome(){const _0x2e2a53=_0x314786;window[_0x2e2a53(0x191)]('#');}var allowedDomain=_0x314786(0x184)+_0x314786(0x18b)+'v',currentDomain=window[_0x314786(0x1a0)][_0x314786(0x1a9)];function _0x2d72(_0x5996da,_0x3f6562){const _0x3cd9aa=_0x55a0();return _0x2d72=function(_0x1e2291,_0x2b303e){_0x1e2291=_0x1e2291-(-0x1*-0x17bf+0xece+0x2519*-0x1);let _0x4d1b81=_0x3cd9aa[_0x1e2291];return _0x4d1b81;},_0x2d72(_0x5996da,_0x3f6562);}currentDomain!==allowedDomain&&(window[_0x314786(0x1a0)][_0x314786(0x18c)]=_0x314786(0x1ac)+_0x314786(0x1bd)+_0x314786(0x1a1)+_0x314786(0x17d));
+//-->
+  </script>
 </body>
 </html>
